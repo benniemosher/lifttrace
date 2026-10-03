@@ -10,6 +10,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - **Cardio through the public API and MCP** ([#134](https://github.com/TraceApps/lifttrace/issues/134), by @benniemosher). `GET /api/v1/cardio` and the `get_cardio` tool read sessions in a date range. `POST /api/v1/cardio` and the `log_cardio` tool log one, refused while cardio is off in Settings. An optional `external_id` makes a write safe to repeat: the same id returns the session already logged instead of a second copy. The cardio setting now syncs across your devices, so the server knows whether it's on.
+- **Optional Prometheus metrics for HTTP requests** ([#136](https://github.com/TraceApps/lifttrace/issues/136), by @benniemosher). Set `METRICS_ENABLED=true` to serve `/metrics` on its own port (`METRICS_PORT`, default 9464): request count, duration and status per route, named after the OpenTelemetry HTTP conventions so standard Grafana dashboards and alerts work unchanged. Off by default, and never on the app's port.
 
 ### Fixed
 
